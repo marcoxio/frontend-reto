@@ -1,0 +1,22 @@
+<div class="card my-5">
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">IdServicio</th>
+                    <th scope="col">IdTecnico</th>
+                    <th scope="col">Inicio</th>
+                    <th scope="col">Fin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reporte of reportes">
+                    <td>{{ reporte.idServicio }}</td>
+                    <td>{{ reporte.idTecnico }}</td>
+                    <td>{{ reporte.fechaInicio}}</td>
+                    <td>{{ reporte.fechaFin }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

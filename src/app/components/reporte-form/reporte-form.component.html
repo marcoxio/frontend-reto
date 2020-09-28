@@ -1,0 +1,32 @@
+<div [hidden]="completado" class="card my-5">
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #reporteForm="ngForm">
+            <div class="form-group">
+                <label for="idServicio">IdServicio</label>
+                <input type="text" [(ngModel)]="reporte.idServicio" class="form-control" id="idServicio" name="idServicio" placeholder="Ingresa id Servicio" required #idServicio="ngModel">
+            </div>
+            <div [hidden]="!idServicio.pristine" class="alert alert-danger">IdServicio es requerido</div>
+            <div class="form-group">
+                <label for="idTecnico">IdTecnico</label>
+                <input type="text" [(ngModel)]="reporte.idTecnico" class="form-control" id="idTecnico" name="idTecnico" placeholder="Ingresa id Tecnico" required #idTecnico="ngModel">
+                <div [hidden]="!idTecnico.pristine" class="alert alert-danger">IdTecnico es requerido</div>
+            </div>
+
+            <div class="form-group">
+                <label for="fechaInicio">Inicio</label>
+                <input type="datetime-local" [(ngModel)]="reporte.fechaInicio" class="form-control" id="fechaInicio" name="fechaInicio" placeholder="Ingresa Inicio Servicio" required #fechaInicio="ngModel">
+            </div>
+            <div [hidden]="!fechaInicio.pristine" class="alert alert-danger">FechaInicio servicio es requerido</div>
+            <div class="form-group">
+                <label for="fechaFin">Fin</label>
+                <input type="datetime-local" [(ngModel)]="reporte.fechaFin" class="form-control" id="fechaFin" name="fechaFin" placeholder="Ingresa Fin Servicio" required #fechaFin="ngModel">
+            </div>
+            <div [hidden]="!fechaFin.pristine" class="alert alert-danger">FechaFin servicio es requerido</div>
+            <button type="submit" [disabled]="!reporteForm.form.valid" class="btn btn-info">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div [hidden]="!completado" class="container">
+    <h3 class="d-flex justify-content-center align-items-center"> El servicio ha sido creado</h3>
+</div>
